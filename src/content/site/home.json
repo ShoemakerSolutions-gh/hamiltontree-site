@@ -1,0 +1,58 @@
+{
+  "businessName": "Hamilton Tree Service",
+  "businessNameAccent": "Tree Service",
+  "kicker": "Serving Jacksonville since 1987",
+  "heroHeadline": "Honest tree work. Fair prices.",
+  "heroHeadlineAccent": "Your yard left clean.",
+  "heroSub": "Owner-operated full-service tree care: removal, trimming, stump grinding, land clearing, and 24/7 emergency storm response. John Hamilton personally oversees every job.",
+  "primaryCtaLabel": "Get a Free Quote",
+  "contactCtaLabel": "Call or Message Us",
+  "contactMethodNote": "Call or text for your free quote",
+  "contactUrl": "https://www.facebook.com/HamiltonTreeServiceFL",
+  "trust": [
+    { "label": "Years in business", "value": "35+" },
+    { "label": "Review score", "value": "4.9 stars across 130+ reviews" },
+    { "label": "Ownership", "value": "Owner on every job" },
+    { "label": "Availability", "value": "24/7 emergency storm response" },
+    { "label": "Service area", "value": "Jacksonville, FL and nearby" }
+  ],
+  "servicesHeading": "Full-Service Tree Care",
+  "servicesKicker": "What we do",
+  "whyHeading": "30+ Years. Honest Advice, Fair Prices.",
+  "whyKicker": "Why Hamilton",
+  "whyPoints": [
+    "Honest assessments. We sometimes recommend trimming instead of removal to save the tree and save you money.",
+    "The owner is on the job. John Hamilton personally oversees every job, big or small.",
+    "Cleanup is included. We leave your yard as if the job never happened.",
+    "Safety around structures. Roofs, driveways, pools, and fences protected on every removal.",
+    "Ready for hurricane season. Preventive work now, 24/7 response when the storm hits."
+  ],
+  "quoteText": "An honest dealer and a real tree expert.",
+  "quoteAttribution": "What Hamilton Tree Service customers say",
+  "reviewsHeading": "Jacksonville Trusts Hamilton",
+  "reviewsKicker": "Reviews",
+  "reviewScore": "4.9 / 5",
+  "reviewScoreNote": "Across 130+ reviews on Google, Nextdoor, and Yelp",
+  "reviewQuotes": [
+    {
+      "text": "Fair pricing and honest assessments. The yard looked as if the job never happened.",
+      "attribution": "Recurring themes from verified customer reviews"
+    },
+    {
+      "text": "Same-day quote, thorough cleanup, and they protected my roof and driveway the whole time.",
+      "attribution": "Recurring themes from verified customer reviews"
+    }
+  ],
+  "reviewsFootnote": "Review themes summarized from public Google, Nextdoor, and Yelp listings. See our Facebook page for more.",
+  "quoteHeading": "Get Your Free Quote",
+  "quoteKicker": "Free quote",
+  "quoteBoxHeading": "Call or text for your free quote",
+  "quoteBoxBody": "Reach us through our Facebook page and we will get you a straightforward, same-day quote. Tell us what you need: removal, trimming, stump grinding, land clearing, or storm cleanup. Insurance claims welcome.",
+  "quoteTips": "Before you accept any tree quote: get the scope in writing, confirm cleanup and debris haul-away are included, and be wary of anyone asking for full payment up front.",
+  "ctaHeading": "Ready When You Are",
+  "ctaBody": "From a single leaning limb to a full storm cleanup, one call gets an honest answer from a Jacksonville tree company that has been doing this since 1987.",
+  "footerAbout": "Owner-operated, serving Jacksonville FL since 1987. Tree removal, trimming, stump grinding, land clearing, 24/7 storm response.",
+  "footerServiceArea": "Jacksonville, Florida and surrounding neighborhoods.",
+  "footerDemoNote": "Demo website by Shoemaker Solutions. Business details summarized from public listings; to be confirmed with the owner before final publication.",
+  "facebookUrl": "https://www.facebook.com/HamiltonTreeServiceFL"
+}

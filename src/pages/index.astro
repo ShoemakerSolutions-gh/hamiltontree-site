@@ -1,0 +1,196 @@
+---
+import { getCollection } from "astro:content";
+
+const siteEntries = await getCollection("site");
+const c = siteEntries[0].data;
+const svc = (await getCollection("services"))
+  .map((e) => e.data)
+  .sort((a, b) => a.order - b.order);
+
+const title = `${c.businessName} | Jacksonville Tree Removal Since 1987`;
+const desc =
+  "Owner-operated tree service in Jacksonville FL since 1987. Tree removal, trimming, stump grinding, land clearing, and 24/7 emergency storm response. Honest advice, fair prices, full cleanup. Call for a free quote.";
+const fb = c.contactUrl;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={desc} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={desc} />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <style is:global>{`
+    :root{
+      --green:#1e4620; --green-dark:#143015; --orange:#e8710a; --slate:#37474f;
+      --ink:#1c262b; --paper:#f6f5f1; --card:#ffffff; --line:#dcd9d0;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--paper);font-size:17px;line-height:1.6}
+    h1,h2,h3{font-family:Impact,"Arial Narrow",Haettenschweiler,sans-serif;font-weight:700;letter-spacing:.5px;line-height:1.1}
+    a{color:inherit}
+    .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+    header.site{background:var(--green-dark);color:#fff;padding:14px 0}
+    header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .brand{font-family:Impact,"Arial Narrow",sans-serif;font-size:1.35rem;letter-spacing:1px;text-transform:uppercase}
+    .brand span{color:var(--orange)}
+    .callbtn{display:inline-block;background:var(--orange);color:#fff;text-decoration:none;font-weight:700;padding:12px 26px;border-radius:6px;font-size:1.05rem}
+    .callbtn:hover{background:#c95f05}
+    .callbtn.ghost{background:transparent;border:2px solid #fff}
+    .callbtn.ghost:hover{background:rgba(255,255,255,.12)}
+    .hero{background:linear-gradient(160deg,var(--green) 0%,var(--green-dark) 100%);color:#fff;padding:72px 0 84px}
+    .hero h1{font-size:clamp(2.3rem,6vw,3.8rem);text-transform:uppercase;max-width:820px}
+    .hero h1 em{color:var(--orange);font-style:normal}
+    .hero p.sub{font-size:1.2rem;max-width:640px;margin:18px 0 30px;color:#e7ece5}
+    .truststrip{background:var(--slate);color:#fff;padding:16px 0;font-size:.95rem}
+    .truststrip .wrap{display:flex;flex-wrap:wrap;gap:10px 36px;justify-content:center;text-align:center}
+    .truststrip b{color:#ffd27a}
+    section{padding:64px 0}
+    section h2{font-size:clamp(1.7rem,4vw,2.4rem);text-transform:uppercase;margin-bottom:10px}
+    .kicker{color:var(--orange);font-weight:700;text-transform:uppercase;font-size:.85rem;letter-spacing:2px}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:32px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:24px;border-top:4px solid var(--orange)}
+    .card h3{font-size:1.15rem;text-transform:uppercase;margin-bottom:8px}
+    .card p{font-size:.98rem;color:#43525a}
+    .why{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .why ul{list-style:none;margin-top:24px;display:grid;gap:14px}
+    .why li{padding-left:34px;position:relative}
+    .why li::before{content:"\\2714";position:absolute;left:0;top:0;color:var(--green);font-weight:700}
+    .reviews{background:var(--paper)}
+    .score{font-size:2.6rem;font-weight:800;color:var(--green)}
+    .score small{font-size:1rem;color:var(--slate);font-weight:600;display:block}
+    .quote{background:#fff;border-left:4px solid var(--green);padding:20px 22px;margin-top:22px;border-radius:0 8px 8px 0;font-style:italic}
+    .quote b{font-style:normal;display:block;margin-top:8px;font-size:.85rem;color:var(--slate)}
+    .offer{background:#fff;border-top:1px solid var(--line)}
+    .offer .box{background:var(--paper);border:2px dashed var(--green);border-radius:10px;padding:32px;margin-top:28px}
+    .offer .box h3{margin-bottom:10px;font-size:1.25rem;text-transform:uppercase}
+    .ctablock{background:linear-gradient(160deg,var(--green) 0%,var(--green-dark) 100%);color:#fff;text-align:center;padding:72px 0}
+    .ctablock h2{font-size:clamp(1.9rem,5vw,2.8rem)}
+    .ctablock p{margin:14px auto 30px;max-width:560px;color:#e7ece5}
+    footer.site{background:var(--ink);color:#b9c2c7;padding:44px 0;font-size:.95rem}
+    footer.site .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
+    footer.site b{color:#fff}
+    footer.site a{color:#ffd27a;text-decoration:none}
+    footer.site .fine{margin-top:32px;border-top:1px solid #33404a;padding-top:18px;font-size:.8rem;color:#7d8b94}
+    .stickybar{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--orange);text-align:center;padding:14px;z-index:50;text-decoration:none;color:#fff;font-weight:800;font-size:1.05rem;box-shadow:0 -3px 12px rgba(0,0,0,.25)}
+    @media(max-width:720px){.stickybar{display:block}body{padding-bottom:52px}.hero{padding:56px 0 64px}}
+  `}</style>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <div class="brand">{c.businessName.replace(c.businessNameAccent, "")}<span>{c.businessNameAccent}</span></div>
+      <nav style="font-size:.95rem" aria-label="Main">
+        <a href="#services" style="text-decoration:none;margin-right:18px">Services</a>
+        <a href="#why" style="text-decoration:none;margin-right:18px">Why Hamilton</a>
+        <a href="#quote" style="text-decoration:none">Free Quote</a>
+      </nav>
+      <a class="callbtn ghost" href={fb} rel="noopener">{c.contactCtaLabel}</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker" style="color:#ffb066">{c.kicker}</p>
+      <h1>{c.heroHeadline} <em>{c.heroHeadlineAccent}</em></h1>
+      <p class="sub">{c.heroSub}</p>
+      <a class="callbtn" href="#quote">{c.primaryCtaLabel}</a>
+    </div>
+  </section>
+
+  <div class="truststrip">
+    <div class="wrap">
+      {c.trust.map((t) => <div><b>{t.value}</b> {t.label}</div>)}
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <p class="kicker">{c.servicesKicker}</p>
+      <h2>{c.servicesHeading}</h2>
+      <div class="cards">
+        {svc.map((s) => (
+          <div class="card"><h3>{s.name}</h3><p>{s.description}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="why" class="why">
+    <div class="wrap">
+      <p class="kicker">{c.whyKicker}</p>
+      <h2>{c.whyHeading}</h2>
+      <ul>
+        {c.whyPoints.map((p) => <li set:html={p} />)}
+      </ul>
+      <div class="quote">
+        "{c.quoteText}"
+        <b>{c.quoteAttribution}</b>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews">
+    <div class="wrap">
+      <p class="kicker">{c.reviewsKicker}</p>
+      <h2>{c.reviewsHeading}</h2>
+      <div class="score">{c.reviewScore}<small>{c.reviewScoreNote}</small></div>
+      {c.reviewQuotes.map((q) => (
+        <div class="quote">
+          "{q.text}"
+          <b>{q.attribution}</b>
+        </div>
+      ))}
+      <p style="margin-top:18px;font-size:.9rem;color:var(--slate)">{c.reviewsFootnote}</p>
+    </div>
+  </section>
+
+  <section class="offer" id="quote">
+    <div class="wrap">
+      <p class="kicker">{c.quoteKicker}</p>
+      <h2>{c.quoteHeading}</h2>
+      <div class="box">
+        <h3>{c.quoteBoxHeading}</h3>
+        <p>{c.quoteBoxBody}</p>
+        <p style="margin-top:22px"><a class="callbtn" href={fb} rel="noopener">Contact {c.businessName}</a></p>
+      </div>
+      <p style="margin-top:20px;font-size:.9rem;color:var(--slate)">{c.quoteTips}</p>
+    </div>
+  </section>
+
+  <section class="ctablock">
+    <div class="wrap">
+      <h2>{c.ctaHeading}</h2>
+      <p>{c.ctaBody}</p>
+      <a class="callbtn" href="#quote">{c.primaryCtaLabel}</a>
+    </div>
+  </section>
+
+  <footer class="site">
+    <div class="wrap">
+      <div class="cols">
+        <div>
+          <b>{c.businessName}</b><br />
+          {c.footerAbout}
+        </div>
+        <div>
+          <b>Contact</b><br />
+          <a href={fb} rel="noopener">Facebook: HamiltonTreeServiceFL</a><br />
+          {c.contactMethodNote}.
+        </div>
+        <div>
+          <b>Service Area</b><br />
+          {c.footerServiceArea}
+        </div>
+      </div>
+      <div class="fine">{c.footerDemoNote}</div>
+    </div>
+  </footer>
+
+  <a class="stickybar" href="#quote">{c.primaryCtaLabel}</a>
+</body>
+</html>
